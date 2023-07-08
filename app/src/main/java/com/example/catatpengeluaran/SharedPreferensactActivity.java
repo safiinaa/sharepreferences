@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -63,6 +64,26 @@ public class SharedPreferensactActivity extends AppCompatActivity {
                     pbLogin.setVisibility(View.GONE);
                     ivLogin.setVisibility(View.VISIBLE);
                     Toast.makeText(SharedPreferensactActivity.this, "Username dan passwoard tidak boleh kosong", Toast.LENGTH_SHORT).show();
+                } else {
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            String spUsername = sharePrevManager.getUsername();
+                            String spPassword = sharePrevManager.getPassword();
+
+                            Log.d("username","user"+username);
+                            Log.d("password","password"+password);
+
+                            if (username.equals(spUsername) && password.equals(spPassword)){
+                                Intent i = new Intent(SharedPreferensactActivity.this,LoginActivity.class);
+                                startActivity(i);
+                            }else {
+                                pbLogin.setVisibility(View.GONE);
+                                ivLogin.setVisibility(View.VISIBLE);
+                                Toast.makeText(SharedPreferensactActivity.this, "Username dan password salah", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }, 3000);
                 }
             }
         });

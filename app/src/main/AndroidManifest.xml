@@ -30,7 +30,6 @@
         <activity
             android:name=".FormActivity"
             android:exported="false" />
-        <activity android:name=".DataActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

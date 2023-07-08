@@ -38,6 +38,8 @@ public class SharedPreferensactActivity extends AppCompatActivity {
             btnlogin = findViewById(R.id.btnLogin);
             pbLogin = findViewById(R.id.pblogin);
             ivLogin = findViewById(R.id.login);
+
+            login();
         }
     }
 
@@ -48,7 +50,7 @@ public class SharedPreferensactActivity extends AppCompatActivity {
         finishAffinity();
     }
 
-    public void Login(){
+    public void login(){
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
